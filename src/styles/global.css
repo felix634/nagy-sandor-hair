@@ -1,0 +1,45 @@
+/* src/styles/global.css */
+
+/* Tailwind alap stílusok importálása */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Smooth scroll a belső linkekre (anchor linkekre) */
+html {
+    scroll-behavior: smooth;
+    /* Alapértelmezett fekete háttér és fehér szöveg a logó stílusához igazítva */
+    background-color: #000000;
+    color: #ffffff;
+}
+
+/* Egyéni stílus a logó ezüstszínű textúrájához hasonlóan */
+.text-silver {
+    color: #CCCCCC; /* Világosszürke, ezüst hatás */
+}
+
+.bg-black-gradient {
+    background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
+}
+
+.border-silver-thin {
+    border: 1px solid #333333;
+}
+
+.ns-logo-font {
+    /* Mivel nincs megadva a logó betűtípusa, egy modern, sans-serif betűtípust használunk */
+    font-family: 'Arial Black', sans-serif;
+    letter-spacing: 0.1em;
+}
+
+/* Scroll-triggered animáció alap beállítása (motion.dev-hez) */
+[data-motion-scroll] {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+[data-motion-scroll].in-view {
+    opacity: 1;
+    transform: translateY(0);
+}

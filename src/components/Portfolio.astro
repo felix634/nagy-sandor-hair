@@ -1,0 +1,28 @@
+---
+// src/components/Portfolio.astro
+const images = [
+    { src: '/assets/ref-1.jpg', alt: 'Modern Női Hajvágás' },
+    { src: '/assets/ref-2.jpg', alt: 'Férfi Fade Vágás' },
+    { src: '/assets/ref-3.jpg', alt: 'Színátmenetes Festés' },
+];
+---
+<section id="portfolio" class="py-20 bg-black-gradient">
+    <div class="max-w-7xl mx-auto px-4">
+        <h2 class="text-center text-4xl font-bold text-white mb-12 uppercase" data-motion-scroll>Munkáink</h2>
+        
+        <div class="grid grid-cols-1 sm:grid-cols-3 gap-6">
+            {images.map(image => (
+                <div class="overflow-hidden rounded-xl shadow-2xl group relative" data-motion-scroll>
+                    <img 
+                        src={image.src} 
+                        alt={image.alt} 
+                        class="w-full h-80 object-cover transition duration-500 group-hover:scale-105"
+                    />
+                    <div class="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <p class="text-silver text-lg font-semibold p-4 text-center">{image.alt}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </div>
+</section>

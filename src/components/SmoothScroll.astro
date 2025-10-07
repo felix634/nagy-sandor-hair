@@ -1,0 +1,23 @@
+---
+// src/components/SmoothScroll.astro
+---
+<script>
+    import { inView, animate } from "motion";
+
+    // Ez a függvény figyeli a [data-motion-scroll] attribútummal ellátott elemeket
+    // és animálja őket, amikor a nézetbe kerülnek.
+    const scrollElements = document.querySelectorAll('[data-motion-scroll]');
+
+    scrollElements.forEach((element) => {
+        inView(element, () => {
+            animate(
+                element,
+                { opacity: 1, y: 0 },
+                { duration: 0.8, easing: [0.25, 0.46, 0.45, 0.94] } // ease-in-out
+            );
+            // Hozzáadjuk a .in-view osztályt, hogy a CSS is kezelhesse, és megakadályozzuk
+            // a többszörös animációt az oldalon belül.
+            element.classList.add('in-view');
+        }, { amount: 0.2 }); // 20% láthatóság szükséges a triggerhez
+    });
+</script>

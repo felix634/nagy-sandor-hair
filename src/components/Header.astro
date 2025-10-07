@@ -1,0 +1,28 @@
+---
+// src/components/Header.astro
+const navItems = [
+    { name: 'Szolgáltatások & Árak', href: '#services' },
+    { name: 'Munkáink', href: '#portfolio' },
+    { name: 'Időpontfoglalás', href: '#appointment' },
+    { name: 'Elérhetőségek', href: '#contact' },
+];
+---
+
+<header class="sticky top-0 z-50 bg-black/90 backdrop-blur-sm shadow-md border-b border-gray-800">
+    <div class="max-w-7xl mx-auto flex justify-between items-center h-20 px-4 sm:px-6 lg:px-8">
+        <a href="#hero" class="flex items-center space-x-2">
+            <img src="/assets/logo.png" alt="Nagy Sándor Hair & Beauty Logó" class="h-10 w-auto" />
+        </a>
+
+        <nav class="hidden md:flex space-x-8">
+            {navItems.map(item => (
+                <a 
+                    href={item.href}
+                    class="text-silver hover:text-white transition duration-300 uppercase text-sm font-semibold"
+                >
+                    {item.name}
+                </a>
+            ))}
+        </nav>
+    </div>
+</header>
