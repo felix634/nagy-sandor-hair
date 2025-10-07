@@ -1,30 +1,71 @@
 ---
 // src/components/Services.astro
+
 const services = [
-    { name: "Női Hajvágás & Szárítás", price: "8.500 Ft" },
-    { name: "Férfi Hajvágás (Fade & Classic)", price: "5.500 Ft" },
-    { name: "Komplett Festés & Vágás", price: "22.000 Ft-tól" },
-    { name: "Melír (Rövid/Hosszú Hajra)", price: "18.000 Ft-tól" },
-    { name: "Kozmetikai Szolgáltatás (Alap)", price: "9.000 Ft" },
+    { 
+        title: 'Női Design Vágás & Styling', 
+        description: 'Személyre szabott forma, prémium hajmosás, fejbőr masszázs és professzionális szárítás.', 
+        price: '12.900 Ft' 
+    },
+    { 
+        title: 'Tőfestés + Frissítés', 
+        description: 'Maximum 4 cm lenövés befestése, anyagköltséggel, hajmosással és formázó szárítással.', 
+        price: '19.900 Ft-tól' 
+    },
+    { 
+        title: 'Balayage / Ombre Technika', 
+        description: 'Különleges, kézzel festett színátmenetek, árnyalással, vágás nélkül.', 
+        price: '39.000 Ft-tól' 
+    },
+    { 
+        title: 'Teljes Melír + Kötéserősítés', 
+        description: '100%-os fóliás melír technika, Olaplex vagy hasonló kötéserősítő kezeléssel kombinálva.', 
+        price: '45.000 Ft-tól' 
+    },
+    { 
+        title: 'Keratinos Hajegyenesítés', 
+        description: 'Tartós hajegyenesítő kezelés, amely kisimítja és fényessé teszi a hajszálakat.', 
+        price: '34.000 Ft-tól' 
+    },
+    { 
+        title: 'Alkalmi Frizura / Konty', 
+        description: 'Elegáns feltűzések, kontyok vagy hullámosítás esküvőre, bálra és más eseményre.', 
+        price: '18.000 Ft-tól' 
+    },
 ];
 ---
-<section id="services" class="py-20">
-    <div class="max-w-6xl mx-auto px-4">
-        <h2 class="text-center text-4xl font-bold text-white mb-12 uppercase" data-motion-scroll>Szolgáltatások & Árak</h2>
-        
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
-            {services.map((service, index) => (
-                <div class="p-6 border-silver-thin rounded-lg hover:shadow-silver transition duration-300" data-motion-scroll>
-                    <div class="flex justify-between items-center mb-2">
-                        <h3 class="text-xl font-semibold text-silver">{service.name}</h3>
-                        <span class="text-lg font-bold text-white">{service.price}</span>
+
+<section 
+    id="services" 
+    class="py-20 text-white relative" 
+    style="
+        background-image: url('/assets/servicesbg.png'); 
+        background-size: cover; 
+        background-position: center;
+    "
+>
+    <div class="absolute inset-0 bg-black/80"></div> 
+    
+    <div class="container mx-auto px-6 relative z-10">
+        <h2 class="text-4xl font-bold text-center mb-12 uppercase tracking-wider" data-motion-scroll>
+            Szolgáltatások & Árak
+        </h2>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {services.map(service => (
+                <div 
+                    class="bg-gray-900 border border-silver/20 p-6 rounded-xl shadow-lg hover:border-silver/50 transition duration-300" 
+                    data-motion-scroll
+                >
+                    <div class="flex justify-between items-start mb-3">
+                        <h3 class="text-xl font-semibold text-white">
+                            {service.title}
+                        </h3>
+                        <span class="text-xl font-bold text-silver ml-4 flex-shrink-0">
+                            {service.price}
+                        </span>
                     </div>
-                    <p class="text-sm text-gray-500">
-                        {index === 0 && "Professzionális hajmosás, fejmasszázs és styling."}
-                        {index === 1 && "Precíz vágás, szakálligazítás kérésre."}
-                        {index === 2 && "Tartós, élénk színek, prémium termékekkel."}
-                        {index === 3 && "Finom átmenetek és természetes hatás."}
-                        {index === 4 && "Tisztítás, masszázs, hidratálás."}
+                    <p class="text-gray-400 text-sm">
+                        {service.description}
                     </p>
                 </div>
             ))}
