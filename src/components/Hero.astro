@@ -1,10 +1,13 @@
 ---
 // src/components/Hero.astro
+// ...
 ---
-<section id="hero" class="h-screen flex items-center justify-center text-center bg-cover bg-center" 
-    style="background-image: url('placeholder-hero.jpg'); /* Helyettesítsd egy megfelelő háttérképpel */"
+<section 
+    id="hero" 
+    class="h-screen flex items-center justify-center text-center bg-cover bg-center relative" 
+    style="background-image: url('/assets/hero-bg-metal.png');" 
 >
-    <div class="p-8 bg-black/70 rounded-lg" data-motion-scroll>
+    <div class="absolute inset-0 bg-black/50"></div> <div class="p-8 relative z-10" data-motion-scroll> 
         <h1 class="text-6xl sm:text-7xl ns-logo-font text-white mb-4 tracking-widest">
             Nagy Sándor
         </h1>
