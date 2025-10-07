@@ -1,24 +1,29 @@
 /* src/styles/global.css */
 
-/* Tailwind alap stílusok importálása */
+/* ❗ FONTOS: Ez a három sor tölti be a Tailwind keretrendszert! */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-/* Smooth scroll a belső linkekre (anchor linkekre) */
+/* ------------------------------------------------------------ */
+/* Globális és egyedi stílusok a logóhoz és a smooth scrollhoz */
+/* ------------------------------------------------------------ */
+
+/* Smooth scroll beállítás a CSS-ben */
 html {
     scroll-behavior: smooth;
-    /* Alapértelmezett fekete háttér és fehér szöveg a logó stílusához igazítva */
+    /* Alapértelmezett fekete háttér és fehér szöveg */
     background-color: #000000;
     color: #ffffff;
 }
 
-/* Egyéni stílus a logó ezüstszínű textúrájához hasonlóan */
+/* Egyéni színek és effektek */
 .text-silver {
     color: #CCCCCC; /* Világosszürke, ezüst hatás */
 }
 
 .bg-black-gradient {
+    /* Enyhe átmenet a mélyebb fekete megjelenéshez */
     background: linear-gradient(180deg, #000000 0%, #1a1a1a 100%);
 }
 
@@ -27,19 +32,25 @@ html {
 }
 
 .ns-logo-font {
-    /* Mivel nincs megadva a logó betűtípusa, egy modern, sans-serif betűtípust használunk */
+    /* Csak a látvány kedvéért, hogy vastagabb legyen a cím */
     font-family: 'Arial Black', sans-serif;
     letter-spacing: 0.1em;
 }
 
-/* Scroll-triggered animáció alap beállítása (motion.dev-hez) */
+/* ------------------------------------------------------------ */
+/* Scroll-triggered animáció alap beállítása (motion.dev-hez)   */
+/* ------------------------------------------------------------ */
+
 [data-motion-scroll] {
+    /* Alapértelmezett állapot: láthatatlan és kicsit lejjebb van */
     opacity: 0;
     transform: translateY(20px);
     transition: opacity 0.6s ease-out, transform 0.6s ease-out;
 }
 
+/* Az in-view osztályt a SmoothScroll.astro script adja hozzá */
 [data-motion-scroll].in-view {
+    /* Célállapot: látható és a helyén van */
     opacity: 1;
     transform: translateY(0);
 }
